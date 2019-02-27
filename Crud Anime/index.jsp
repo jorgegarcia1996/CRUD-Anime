@@ -248,11 +248,11 @@
             </div>
             <div class="modal-body">					
               <div class="form-group">
-                <label>Nombre *</label>
+                <label>Nombre</label>
                 <input type="text" name="nombre" class="form-control" required>
               </div>
               <div class="form-group">
-                <label>Tipo *</label>
+                <label>Tipo</label>
                 <select name="tipo" class="form-control" required>
                 <%
                   ResultSet tipo2 = s3.executeQuery("SELECT * FROM TIPO");
@@ -265,7 +265,7 @@
                 </select>
               </div>
               <div class="form-group">
-                <label>Generos*</label>
+                <label>Generos</label>
                 <input type="text" name="genero" class="form-control" required>
               </div>
               <div class="form-group">
