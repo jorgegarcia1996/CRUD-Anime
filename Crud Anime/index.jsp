@@ -28,7 +28,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CRUD Programación</title>
+    <title>CRUD Anime</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -43,6 +43,7 @@
     <script src="./script.js"></script>
   </head>
   <body>
+    <!--Contenedor principal con la tabla del CRUD-->
     <div class="container">
       <div class="table-wrapper">
         <div class="table-title">
@@ -50,10 +51,12 @@
             <div class="col-sm-6">
               <h2>CRUD <b>Anime</b></h2>
             </div>
+            <!--Botón de Agregar un nuevo anime-->
             <div class="col-sm-6">
               <a href="#agregarAnimeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Agregar Anime</span></a>		
             </div>
           </div><br>
+          <!--Barra de búsqueda por nombre del anime-->
           <div class="row">
             <div class="col-sm-12">
               <div class="search-box">
@@ -65,8 +68,10 @@
             </div>
           </div>
         </div>
+        <!--Tabla con los datos de la base de datos-->
         <table class="table table-striped table-hover">
           <thead>
+            <!--Cabecera de la tabla-->
             <tr>
               <th>Codigo</th>
               <th>Nombre</th>
@@ -76,6 +81,7 @@
             </tr>
           </thead>
           <tbody>
+            <!--Lectura de datos de la base de datos para completar la tabla-->
             <%
               ResultSet listado = s1.executeQuery("SELECT * FROM ANIME");
               while (listado.next()) {
