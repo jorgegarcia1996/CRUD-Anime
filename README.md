@@ -21,5 +21,31 @@ Al pulsar en el botón de agregar un nuevo anime, se despliega un Modal con el f
     - Fecha de estreno: Es la fecha en la que se empezó a emitir el anime, campo tipo 'date'.
     - Estudio: Es el nombre delestudio de animación que creó el anime, campo tipo 'text'.
 
-<p style="text-align: center;"><img src="capturas-CRUD/02-1-Modal agregar anime.png" width="50%"></p>
-<p style="text-align: center;"><img src="capturas-CRUD/02-2-Botones modal agregar anime.png" width="50%"></p>
+<img src="capturas-CRUD/02-1-Modal agregar anime.png" width="50%">
+<img src="capturas-CRUD/02-2-Botones modal agregar anime.png" width="50%">
+
+## Editar un anime
+
+Al editar un anime se nos abre un Modal con todos los datos del anime en sus respectivos campos de formulario, no se puede dejar un campo de formulario en blanco, y al final tiene 2 botones, uno de 'Cancelar' para volver a la lista de anime y oreo de 'Guardar Cambios' para actualizar los datos del anime.
+
+<img src="capturas-CRUD/03-1-Modal editar anime.png" width="50%">
+<img src="capturas-CRUD/03-2-Botones modal editar anime.png" width="50%">
+
+## Borrar un anime
+
+Al borrar un anime se abre un Modal pidiendo confirmación para borrar el anime de la lista.
+
+<img src="capturas-CRUD/04-Modal Eliminar anime.png" width="50%">
+
+## Ver detalles de un anime
+
+En la sección de ver detalles de un anime, se noa abre un Modal mostrando todos los datos del anime seleccionado.
+
+<img src="capturas-CRUD/05-1-Modal detalles anime.png" width="50%">
+<img src="capturas-CRUD/05-2-Botones modal detalles anime.png" width="50%">
+
+## Barra de búsqueda
+
+He añadido una barra de búsqueda la cual busca una entrada de la lista por el nombre.
+
+<img src="capturas-CRUD/06-Barra de busqueda funcional.png" width="50%">
