@@ -21,5 +21,5 @@ Al pulsar en el botón de agregar un nuevo anime, se despliega un Modal con el f
     - Fecha de estreno: Es la fecha en la que se empezó a emitir el anime, campo tipo 'date'.
     - Estudio: Es el nombre delestudio de animación que creó el anime, campo tipo 'text'.
 
-<img src="capturas-CRUD/02-1-Modal agregar anime.png" width="50%">
-<img src="capturas-CRUD/02-2-Botones modal agregar anime.png" width="50%">
+<p style="align-content: center;"><img src="capturas-CRUD/02-1-Modal agregar anime.png" width="50%"></p>
+<p style="align-content: center;"><img src="capturas-CRUD/02-2-Botones modal agregar anime.png" width="50%"></p>
