@@ -1,0 +1,17 @@
+crud\anime\ServletInitializer.class
+crud\anime\service\impl\AnimeServiceImpl.class
+crud\anime\service\TipoService.class
+crud\anime\dto\AnimeDTO$AnimeDTOBuilder.class
+crud\anime\service\impl\TipoServiceImpl.class
+crud\anime\entity\Tipo.class
+crud\anime\repo\AnimeRepo.class
+crud\anime\entity\Anime$AnimeBuilder.class
+crud\anime\service\AnimeService.class
+crud\anime\Application.class
+crud\anime\dto\AnimeDTO.class
+crud\anime\dto\TipoDTO$TipoDTOBuilder.class
+crud\anime\entity\Tipo$TipoBuilder.class
+crud\anime\dto\TipoDTO.class
+crud\anime\entity\Anime.class
+crud\anime\controller\AnimeController.class
+crud\anime\repo\TipoRepo.class
