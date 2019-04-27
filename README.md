@@ -49,6 +49,3 @@ En la sección de ver detalles de un anime, se noa abre un Modal mostrando todos
 He añadido una barra de búsqueda la cual busca una entrada de la lista por el nombre.
 
 <img src="capturas-CRUD/06-Barra de busqueda funcional.png">
-
-
-La version del CRUD con Spring boot aun está en desarrollo.
