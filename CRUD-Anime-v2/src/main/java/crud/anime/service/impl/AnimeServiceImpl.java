@@ -7,9 +7,10 @@ import org.springframework.stereotype.Service;
 
 import crud.anime.entity.Anime;
 import crud.anime.repo.AnimeRepo;
+import crud.anime.service.AnimeService;
 
 @Service
-public class AnimeServiceImpl {
+public class AnimeServiceImpl implements AnimeService {
 	
 	@Autowired
 	AnimeRepo animeRepo;

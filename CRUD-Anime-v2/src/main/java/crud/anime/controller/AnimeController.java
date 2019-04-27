@@ -6,18 +6,18 @@ import java.util.List;
 
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import crud.anime.dto.AnimeDTO;
 import crud.anime.entity.Anime;
 import crud.anime.service.AnimeService;
 
-@Controller
+@RestController
 public class AnimeController {
 
 	@Autowired
-	AnimeService animeService;
+	private AnimeService animeService;
 	
 	DozerBeanMapper mapper = new DozerBeanMapper();
 	

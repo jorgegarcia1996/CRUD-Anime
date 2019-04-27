@@ -7,9 +7,10 @@ import org.springframework.stereotype.Service;
 
 import crud.anime.entity.Tipo;
 import crud.anime.repo.TipoRepo;
+import crud.anime.service.TipoService;
 
 @Service
-public class TipoServiceImpl {
+public class TipoServiceImpl implements TipoService {
 	
 	@Autowired
 	TipoRepo tipoRepo;
@@ -26,7 +27,7 @@ public class TipoServiceImpl {
 		tipoRepo.deleteById(codTip);
 	}
 	
-	public Tipo saveAnime(Tipo tipo) {
+	public Tipo saveTipo(Tipo tipo) {
 		return tipoRepo.save(tipo);
 	}
 }
