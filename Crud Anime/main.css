@@ -269,3 +269,7 @@ table.table .avatar {
 .justify-content-center {
   text-align: center;
 }
+
+.text-double {
+  font-size: 2em;
+}

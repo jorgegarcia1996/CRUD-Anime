@@ -48,7 +48,7 @@
 
     <script>
       // Redirecciona a la página principal
-      location.replace("index.jsp");
+      location.replace("lista.jsp");
     </script>
   </body>
 </html>
