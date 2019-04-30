@@ -19,7 +19,7 @@
       request.setCharacterEncoding("UTF-8");
 
       Class.forName("com.mysql.jdbc.Driver");
-      Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/ANIME", "root", "root");
+      Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/anime", "root", "root");
       Statement s = conexion.createStatement();
 
       String actualizacion = "UPDATE ANIME SET NomAni='";

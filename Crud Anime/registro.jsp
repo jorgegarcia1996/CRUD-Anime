@@ -1,17 +1,17 @@
 <%-- 
-    Document   : index
-    Created on : 17-abr-2019, 18:23:25
+    Document   : registro
+    Created on : 30-abr-2019, 18:41:39
     Author     : Jorge
 --%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CRUD Programación - LOGIN</title>
+    <title>CRUD Programación - REGISTRO</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -25,10 +25,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </head>
   <body>
-    <h1 class="font-weight-bold text-center">Login</h1>
+    <h1 class="font-weight-bold text-center">Registro</h1>
     <br>
     <div class="container-flex">
-      <form action="comprueba-usuario.jsp" method="POST">
+      <form action="registrar-usuario.jsp" method="POST">
         <div class="row">
           <div class="col-md-2 offset-md-2 text-double text-right font-weight-bold">
             <p>Usuario:</p>
@@ -46,14 +46,20 @@
             <input type="password" name="password" id="password" class="form-control" required>
           </div>
         </div>
+        <br>
         <div class="row">
-          <div class="col-md-12 text-center">
-            <input type="submit" class="btn btn-info" value="Entrar">
+          <div class="col-md-2 offset-md-2 text-double text-right font-weight-bold">
+            <p>Correo:</p>
+          </div>
+          <div class="col-md-4">
+            <input type="email" name="email" id="email" class="form-control" required>
           </div>
         </div>
+        <br>
         <div class="row">
           <div class="col-md-12 text-center">
-            <h5 class="font-weight-bold">¿No tienes cuenta? <a href="registro.jsp">Regístrate</a></h5>
+            <input type="submit" class="btn btn-success" value="Registrarse">
+            <a href="index.jsp" class="btn btn-info">Volver</a>
           </div>
         </div>
       </form>

@@ -12,7 +12,7 @@
   request.setCharacterEncoding("UTF-8");
       
   Class.forName("com.mysql.jdbc.Driver");
-  Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/ANIME", "root", "root");
+  Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/anime", "root", "root");
   Statement s1 = conexion.createStatement();
   Statement s2 = conexion.createStatement();
   Statement s3 = conexion.createStatement();
@@ -51,7 +51,7 @@
               <h2>CRUD <b>Anime</b></h2>
             </div>
             <div class="col-sm-6 text-right">
-              <p>Bienvenido de nuevo, <%=request.getParameter("username")%></p>		
+              <p>Bienvenido, <b><%out.print(session.getAttribute("usuario"));%></b><a href="cerrar-sesion.jsp" class="btn btn-danger">Logout</a></p>		
             </div>
           </div><br>
           <div class="row">
