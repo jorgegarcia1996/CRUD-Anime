@@ -48,10 +48,10 @@
         <div class="table-title">
           <div class="row">
             <div class="col-sm-6">
-              <h2>CRUD <b>Anime</b></h2>
+              <h3>CRUD <b>Anime</b></h3>
             </div>
             <div class="col-sm-6 text-right">
-              <p>Bienvenido, <b><%out.print(session.getAttribute("usuario"));%></b><a href="cerrar-sesion.jsp" class="btn btn-danger">Logout</a></p>		
+              <h3>Bienvenido, <b><%out.print(session.getAttribute("usuario"));%></b><a href="cerrar-sesion.jsp" class="btn btn-danger"><i class="material-icons">exit_to_app</i> Salir</a></h3>		
             </div>
           </div><br>
           <div class="row">
@@ -85,25 +85,37 @@
               ResultSet listado = s1.executeQuery("SELECT * FROM ANIME");
               while (listado.next()) {
                 ResultSet tipo = s2.executeQuery("SELECT * FROM TIPO");
+                session.setAttribute("codigoAnime", listado.getString("CodAni"));
+                session.setAttribute("nombreAnime", listado.getString("NomAni"));
+                session.setAttribute("sinopsisAnime", listado.getString("SinAni"));
+                session.setAttribute("generoAnime", listado.getString("GenAni"));
+                session.setAttribute("numeroEpisodiosAnime", listado.getString("NumEpiAni"));
+                session.setAttribute("duracionEpisodioAnime", listado.getString("DurEpiAni"));
+                session.setAttribute("fechaEstrenoAnime", listado.getString("FecEstAni"));
+                session.setAttribute("estudioAnimacionAnime", listado.getString("EstAni"));
+                session.setAttribute("codigoTipoAnime", listado.getString("CodTip"));
             %>
             <tr>
-              <td><%= listado.getString("CodAni")%></td>
-              <td width="50%"><%= listado.getString("NomAni")%></td>
-              <td class="justify-content-center"><%= listado.getString("NumEpiAni")%></td>
+              <td><%= session.getAttribute("codigoAnime")%></td>
+              <td width="50%"><%= session.getAttribute("nombreAnime")%></td>
+              <td class="justify-content-center"><%= session.getAttribute("numeroEpisodiosAnime")%></td>
               <td>
               <%
                 while(tipo.next()) {
-                  if (listado.getString("CodTip").equals(tipo.getString("CodTip"))) {
-                    out.print(tipo.getString("NomTip"));
+                  session.setAttribute("codigoTipo", tipo.getString("CodTip"));
+                  
+                  if (session.getAttribute("codigoTipoAnime").equals(session.getAttribute("codigoTipo"))) {
+                    session.setAttribute("nombreTipo", tipo.getString("NomTip"));
+                    out.print(session.getAttribute("nombreTipo"));
                   }
                 }
                 %>
               </td>
               <td width="150px" class="justify-content-center">
                 <!--Boton de Editar Anime-->
-                <a href="#editarAnimeModal<%= listado.getString("CodAni")%>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
+                <a href="#editarAnimeModal<%= session.getAttribute("codigoAnime")%>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
                 <!-- Modal Editar Anime -->
-                <div id="editarAnimeModal<%= listado.getString("CodAni")%>" class="modal fade">
+                <div id="editarAnimeModal<%= session.getAttribute("codigoAnime")%>" class="modal fade">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <form action="actualizar.jsp" method="post">
@@ -112,47 +124,48 @@
                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">	
-                          <input type="hidden" name="actualizarAnime" value="<%= listado.getString("CodAni")%>">
+                          <input type="hidden" name="actualizarAnime" value="<%= session.getAttribute("codigoAnime")%>">
                           <div class="form-group">
                             <label>Nombre</label>
-                            <input type="text" name="nombre" class="form-control" value="<%=listado.getString("NomAni")%>" required>
+                            <input type="text" name="nombre" class="form-control" value="<%= session.getAttribute("nombreAnime")%>" required>
                           </div>
                           <div class="form-group">
                             <label>Tipo</label>
                             <select name="tipo" class="form-control" required>
+                              <option value="<%= session.getAttribute("codigoTipoAnime")%>" selected="true"><%= session.getAttribute("nombreTipo")%></option>
                             <%
                               ResultSet tipo4 = s7.executeQuery("SELECT * FROM TIPO");
                               while (tipo4.next()) {
-                            %>
-                            <option value="<%= tipo4.getString("CodTip")%>"><%= tipo4.getString("NomTip")%></option>
-                            <%
+                                if (!session.getAttribute("codigoTipoAnime").equals(tipo4.getString("CodTip"))) {
+                                  out.println("<option value=" + tipo4.getString("CodTip") + ">" + tipo4.getString("NomTip") + "</option>");
+                                }
                               }
                             %>
                             </select>
                           </div>
                           <div class="form-group">
                             <label>Generos</label>
-                            <input type="text" name="genero" class="form-control" value="<%=listado.getString("GenAni")%>" required>
+                            <input type="text" name="genero" class="form-control" value="<%= session.getAttribute("generoAnime")%>" required>
                           </div>
                           <div class="form-group">
                             <label>Sinopsis</label>
-                            <textarea class="form-control" name="sinopsis" required><%=listado.getString("SinAni")%></textarea>
+                            <textarea class="form-control" name="sinopsis" required><%= session.getAttribute("sinopsisAnime")%></textarea>
                           </div>
                           <div class="form-group">
                             <label>Numero de episodios</label>
-                            <input type="number" class="form-control" min="1" step="1" name="numeroEpisodios" value="<%=listado.getString("NumEpiAni")%>" required>
+                            <input type="number" class="form-control" min="1" step="1" name="numeroEpisodios" value="<%= session.getAttribute("numeroEpisodiosAnime")%>" required>
                           </div>
                           <div class="form-group">
                             <label>Duracion de los episodios (en minutos)</label>
-                            <input type="number" class="form-control" name="duracionEpisodios" min="0" step="1" value="<%=listado.getString("DurEpiAni")%>" required>
+                            <input type="number" class="form-control" name="duracionEpisodios" min="0" step="1" value="<%=session.getAttribute("duracionEpisodioAnime")%>" required>
                           </div>
                           <div class="form-group">
                             <label>Fecha de estreno</label>
-                            <input type="date" class="form-control" name="fechaEstreno"  value="<%=listado.getString("FecEstAni")%>" required>
+                            <input type="date" class="form-control" name="fechaEstreno"  value="<%= session.getAttribute("fechaEstrenoAnime")%>" required>
                           </div>
                           <div class="form-group">
                             <label>Estudio</label>
-                            <input type="text" name="estudio" class="form-control"  value="<%=listado.getString("EstAni")%>" required>
+                            <input type="text" name="estudio" class="form-control"  value="<%= session.getAttribute("estudioAnimacionAnime")%>" required>
                           </div>
                         </div>
                         <div class="modal-footer">
@@ -165,9 +178,9 @@
                 </div>
                 
                 <!--Boton de borrar anime-->
-                <a href="#borrarAnimeModal<%= listado.getString("CodAni")%>" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Borrar">&#xE872;</i></a>
+                <a href="#borrarAnimeModal<%= session.getAttribute("codigoAnime")%>" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Borrar">&#xE872;</i></a>
                 <!-- Modal Borrar Anime -->
-                <div id="borrarAnimeModal<%= listado.getString("CodAni")%>" class="modal fade">
+                <div id="borrarAnimeModal<%= session.getAttribute("codigoAnime")%>" class="modal fade">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <form action="eliminar.jsp" mathod="post">
@@ -177,8 +190,8 @@
                         </div>
                         <div class="modal-body">					
                           <p>¿Seguro que quiere borrar el siguiente anime de la lista?</p>
-                          <p><%= listado.getString("NomAni")%></p>
-                          <input type="hidden" name="borrarAnime" value="<%= listado.getString("CodAni")%>">
+                          <p><%= session.getAttribute("nombreAnime")%></p>
+                          <input type="hidden" name="borrarAnime" value="<%= session.getAttribute("codigoAnime")%>">
                           <p class="text-warning"><small>Estos cambios no se podrán deshacer.</small></p>
                         </div>
                         <div class="modal-footer">
@@ -190,9 +203,9 @@
                   </div>
                 </div>
                 <!--Boton de Ver Detalles-->
-                <a href="#verAnimeModal<%= listado.getString("CodAni")%>" class="view" data-toggle="modal"><i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Detalles"></i></a>
+                <a href="#verAnimeModal<%= session.getAttribute("codigoAnime")%>" class="view" data-toggle="modal"><i class="fa fa-eye" aria-hidden="true" data-toggle="tooltip" title="Detalles"></i></a>
                 <!--Modal Ver Detalles Anime-->
-                <div id="verAnimeModal<%= listado.getString("CodAni")%>" class="modal fade">
+                <div id="verAnimeModal<%= session.getAttribute("codigoAnime")%>" class="modal fade">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">						
@@ -201,30 +214,21 @@
                       </div>
                       <div class="modal-body">	
                         <h4>Nombre</h4>
-                        <p><%=listado.getString("NomAni")%></p><br>
+                        <p><%= session.getAttribute("nombreAnime")%></p><br>
                         <h4>Tipo</h4>
-                        <p>
-                        <%
-                          ResultSet tipo3 = s6.executeQuery("SELECT * FROM TIPO");
-                          while (tipo3.next()) {
-                            if (listado.getString("CodTip").equals(tipo3.getString("CodTip"))) {
-                              out.print(tipo3.getString("NomTip"));
-                            }
-                          }
-                        %>
-                        </p><br>
+                        <p><%= session.getAttribute("nombreTipo")%></p><br>
                         <h4>Generos</h4>
-                        <p><%=listado.getString("GenAni")%></p><br>
+                        <p><%= session.getAttribute("generoAnime")%></p><br>
                         <h4>Sinopsis</h4>
-                        <p><%=listado.getString("SinAni")%></p><br>
+                        <p><%= session.getAttribute("sinopsisAnime")%></p><br>
                         <h4>Numero de Episodios</h4>
-                        <p><%=listado.getString("NumEpiAni")%></p><br>
+                        <p><%= session.getAttribute("numeroEpisodiosAnime")%></p><br>
                         <h4>Duracion de los Episodios</h4>
-                        <p><%=listado.getString("DurEpiAni")%> minutos</p><br>
+                        <p><%= session.getAttribute("duracionEpisodioAnime")%> minutos</p><br>
                         <h4>Fecha de Estreno</h4>
-                        <p><%=listado.getString("FecEstAni")%></p><br>
+                        <p><%= session.getAttribute("fechaEstrenoAnime")%></p><br>
                         <h4>Estudio de Animacion</h4>
-                        <p><%=listado.getString("EstAni")%></p><br>
+                        <p><%= session.getAttribute("estudioAnimacionAnime")%></p><br>
                       </div>
                       <div class="modal-footer">
                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Volver">

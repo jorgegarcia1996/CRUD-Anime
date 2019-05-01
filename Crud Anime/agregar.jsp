@@ -17,7 +17,14 @@
   <body>
     <%
       request.setCharacterEncoding("UTF-8");
-      
+      session.setAttribute("nombre", request.getParameter("nombre"));
+      session.setAttribute("sinopsis", request.getParameter("sinopsis"));
+      session.setAttribute("genero", request.getParameter("genero"));
+      session.setAttribute("numeroEpisodios", request.getParameter("numeroEpisodios"));
+      session.setAttribute("duracionEpisodio", request.getParameter("duracionEpisodio"));
+      session.setAttribute("fechaEstreno", request.getParameter("fechaEstreno"));
+      session.setAttribute("estudio", request.getParameter("estudio"));
+      session.setAttribute("tipo", request.getParameter("tipo"));
       
 
       Class.forName("com.mysql.jdbc.Driver");
@@ -26,14 +33,14 @@
 
       String insercion = "INSERT INTO ANIME ";
       insercion += "VALUES (NULL, '";
-      insercion += request.getParameter("nombre") + "', '";
-      insercion += request.getParameter("sinopsis") + "', '";
-      insercion += request.getParameter("genero") + "', ";
-      insercion += request.getParameter("numeroEpisodios") + ", ";
-      insercion += request.getParameter("duracionEpisodios") + ", '";
-      insercion += request.getParameter("fechaEstreno") + "', '";
-      insercion += request.getParameter("estudio") + "', ";
-      insercion += request.getParameter("tipo") + ")";
+      insercion += session.getAttribute("nombre") + "', '";
+      insercion += session.getAttribute("sinopsis") + "', '";
+      insercion += session.getAttribute("genero") + "', ";
+      insercion += session.getAttribute("numeroEpisodios") + ", ";
+      insercion += session.getAttribute("duracionEpisodios") + ", '";
+      insercion += session.getAttribute("fechaEstreno") + "', '";
+      insercion += session.getAttribute("estudio") + "', ";
+      insercion += session.getAttribute("tipo") + ")";
 
       //out.print(insercion);
       s.execute(insercion);

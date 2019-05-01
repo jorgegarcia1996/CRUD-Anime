@@ -17,29 +17,38 @@
   <body>
     <%
       request.setCharacterEncoding("UTF-8");
+      session.setAttribute("actualizarAnime", request.getParameter("actualizarAnime"));
+      session.setAttribute("nombre", request.getParameter("nombre"));
+      session.setAttribute("sinopsis", request.getParameter("sinopsis"));
+      session.setAttribute("genero", request.getParameter("genero"));
+      session.setAttribute("numeroEpisodios", request.getParameter("numeroEpisodios"));
+      session.setAttribute("duracionEpisodio", request.getParameter("duracionEpisodio"));
+      session.setAttribute("fechaEstreno", request.getParameter("fechaEstreno"));
+      session.setAttribute("estudio", request.getParameter("estudio"));
+      session.setAttribute("tipo", request.getParameter("tipo"));
 
       Class.forName("com.mysql.jdbc.Driver");
       Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/anime", "root", "root");
       Statement s = conexion.createStatement();
 
       String actualizacion = "UPDATE ANIME SET NomAni='";
-      actualizacion += request.getParameter("nombre");
+      actualizacion += session.getAttribute("nombre");
       actualizacion += "', SinAni='";
-      actualizacion += request.getParameter("sinopsis");
+      actualizacion += session.getAttribute("sinopsis");
       actualizacion += "', GenAni='";
-      actualizacion += request.getParameter("genero");
+      actualizacion += session.getAttribute("genero");
       actualizacion += "', NumEpiAni=";
-      actualizacion += request.getParameter("numeroEpisodios");
+      actualizacion += session.getAttribute("numeroEpisodios");
       actualizacion += ", DurEpiAni=";
-      actualizacion += request.getParameter("duracionEpisodios");
+      actualizacion += session.getAttribute("duracionEpisodios");
       actualizacion += ", FecEstAni='";
       actualizacion += request.getParameter("fechaEstreno");
       actualizacion += "', EstAni='";
       actualizacion += request.getParameter("estudio");
       actualizacion += "', CodTip=";
-      actualizacion += request.getParameter("tipo");
+      actualizacion += session.getAttribute("tipo");
       actualizacion += " WHERE CodAni=";
-      actualizacion += request.getParameter("actualizarAnime");
+      actualizacion += session.getAttribute("actualizarAnime");
       
       //out.print(actualizacion);
       s.execute(actualizacion);

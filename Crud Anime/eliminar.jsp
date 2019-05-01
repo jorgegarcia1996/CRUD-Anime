@@ -17,13 +17,13 @@
   <body>
     <%
       request.setCharacterEncoding("UTF-8");
-      
+      session.setAttribute("animeABorrar", request.getParameter("borrarAnime"));
       
 
       Class.forName("com.mysql.jdbc.Driver");
       Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/anime", "root", "root");
       Statement s = conexion.createStatement();
-      String borrado = "DELETE FROM ANIME WHERE CodAni = " + request.getParameter("borrarAnime");
+      String borrado = "DELETE FROM ANIME WHERE CodAni = " + session.getAttribute("animeABorrar");
 
       s.execute(borrado);
       conexion.close();
