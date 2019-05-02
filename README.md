@@ -68,15 +68,15 @@ Si por el contrario el usuario no está en la base de datos, o el nombre de usua
 
 ## Registro
 
-Debajo del login hay un enlace a un formulario de registro para registrar un uaurio en la base de datos.
+Debajo del login hay un enlace a un formulario de registro para registrar un usuario en la base de datos.
 
 <img src="capturas-CRUD/09-Pagina de registro.PNG">
 
-Si se registra a un usuario muestra un mensaje de que se ha registrado correctamente junto con un botón para volver al login.
+Si se registra a un usuario muestra un mensaje diciendo que se ha registrado correctamente junto con un botón para volver al login.
 
 <img src="capturas-CRUD/10-Registro correcto.PNG">
 
-Pero si se intenta registrar un usuario que ya existe en la base de datos, muestra un mensaje diciendo que el usuario ya existe.
+Pero si se intenta registrar un usuario que ya existe en la base de datos, muestra un mensaje diciendo que el usuario ya existe y un botón para volver al registro.
 
 <img src="capturas-CRUD/11-Registro de usuario existente.PNG">
 
