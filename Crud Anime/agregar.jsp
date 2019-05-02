@@ -21,7 +21,7 @@
       session.setAttribute("sinopsis", request.getParameter("sinopsis"));
       session.setAttribute("genero", request.getParameter("genero"));
       session.setAttribute("numeroEpisodios", request.getParameter("numeroEpisodios"));
-      session.setAttribute("duracionEpisodio", request.getParameter("duracionEpisodio"));
+      session.setAttribute("duracionEpisodio", request.getParameter("duracionEpisodios"));
       session.setAttribute("fechaEstreno", request.getParameter("fechaEstreno"));
       session.setAttribute("estudio", request.getParameter("estudio"));
       session.setAttribute("tipo", request.getParameter("tipo"));
@@ -37,7 +37,7 @@
       insercion += session.getAttribute("sinopsis") + "', '";
       insercion += session.getAttribute("genero") + "', ";
       insercion += session.getAttribute("numeroEpisodios") + ", ";
-      insercion += session.getAttribute("duracionEpisodios") + ", '";
+      insercion += session.getAttribute("duracionEpisodio") + ", '";
       insercion += session.getAttribute("fechaEstreno") + "', '";
       insercion += session.getAttribute("estudio") + "', ";
       insercion += session.getAttribute("tipo") + ")";

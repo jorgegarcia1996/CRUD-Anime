@@ -1,4 +1,4 @@
-# CRUD Anime
+# CRUD Anime (Version 1)
 
 Mi trabajo de CRUD es una lista de anime en la que se pueden agregar nuevos animes, editar alguno ya existente, borrar un anime de la lista o ver mas detalles de anime.
 
@@ -49,3 +49,37 @@ En la sección de ver detalles de un anime, se noa abre un Modal mostrando todos
 He añadido una barra de búsqueda la cual busca una entrada de la lista por el nombre.
 
 <img src="capturas-CRUD/06-Barra de busqueda funcional.png">
+
+# Cambios de la versión 2
+
+## Login
+
+He implementado un login con una tabla más en la base de datos donde se comprueba que el usuario esté registrado para acceder al CRUD.
+
+<img src="capturas-CRUD/07-Pantalla login.PNG">
+
+Si el usuario está en la base de datos podrá acceder al CRUD y se mostrará su nombre en el encabezado de la tabla, junto con un botón de 'Logout'.
+
+<img src="capturas-CRUD/12-Identificacion del usuario en el crud.PNG">
+
+Si por el contrario el usuario no está en la base de datos, o el nombre de usuario/contraseña son incorrectos, mostrará un mensaje de eror junto a un botón para volver a la pantalla de login.
+
+<img src="capturas-CRUD/08-Login incorrecto.PNG">
+
+## Registro
+
+Debajo del login hay un enlace a un formulario de registro para registrar un uaurio en la base de datos.
+
+<img src="capturas-CRUD/09-Pagina de registro.PNG">
+
+Si se registra a un usuario muestra un mensaje de que se ha registrado correctamente junto con un botón para volver al login.
+
+<img src="capturas-CRUD/10-Registro correcto.PNG">
+
+Pero si se intenta registrar un usuario que ya existe en la base de datos, muestra un mensaje diciendo que el usuario ya existe.
+
+<img src="capturas-CRUD/11-Registro de usuario existente.PNG">
+
+## Características extras
+- Si desde la pantalla de login, mediante la URL intentamos acceder al CRUD, se hace una redireccion a la pantalla de login.
+- La contraseña de los usuarios en la base de datos está encriptada.

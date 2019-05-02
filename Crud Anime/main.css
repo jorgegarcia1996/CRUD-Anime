@@ -273,3 +273,7 @@ table.table .avatar {
 .text-double {
   font-size: 2em;
 }
+
+#loginFail, #existeUsuario, #creadoUsuario {
+  display: none;
+}
