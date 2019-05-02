@@ -62,7 +62,7 @@ Si el usuario está en la base de datos podrá acceder al CRUD y se mostrará su
 
 <img src="capturas-CRUD/12-Identificacion del usuario en el crud.PNG">
 
-Si por el contrario el usuario no está en la base de datos, o el nombre de usuario/contraseña son incorrectos, mostrará un mensaje de eror junto a un botón para volver a la pantalla de login.
+Si por el contrario el usuario no está en la base de datos, o el nombre de usuario/contraseña son incorrectos, mostrará un mensaje de error junto a un botón para volver a la pantalla de login.
 
 <img src="capturas-CRUD/08-Login incorrecto.PNG">
 
