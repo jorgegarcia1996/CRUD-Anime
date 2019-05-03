@@ -25,7 +25,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </head>
   <body>
-    <h1 class="font-weight-bold text-center">Login</h1>
+    <h1 class="font-weight-bold text-center">CRUD Anime</h1>
+    <h2 class="font-weight-bold text-center">Login</h2>
     <br>
     <div class="container-flex">
       <form action="comprueba-usuario.jsp" method="POST">
